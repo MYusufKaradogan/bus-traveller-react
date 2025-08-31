@@ -4,19 +4,104 @@ export const getDummyData = (serviceName, queryParams) => {
             setTimeout(() => {
                 resolve({
                     data: [
-                        ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map(index => (
-                            {
-                                id: index,
-                                title: "İlan başlık " + index,
-                                location: "İstanbul/Nişantaşı",
-                                date: "2025.04.15",
-                                price: 240,
-                                period: "Aylık",
-                                availability: "Uygun",
-                                adType: "Billboard",
-                                url: "https://picsum.photos/800/600?random=" + index,
-                            }
-                        ))
+                        {
+                            route: "Ankara - İstanbul",
+                            purpose: "Toplantı",
+                            startDate: "04.08.2025",
+                            endDate: "06.08.2025",
+                            status: "Gerçekleşti"
+                        },
+                        {
+                            route: "İzmir - Antalya",
+                            purpose: "Fuar",
+                            startDate: "10.09.2025",
+                            endDate: "15.09.2025",
+                            status: "Planlandı"
+                        },
+                        {
+                            route: "Bursa - Eskişehir",
+                            purpose: "Müşteri Ziyareti",
+                            startDate: "20.07.2025",
+                            endDate: "21.07.2025",
+                            status: "İptal Edildi"
+                        },
+                        {
+                            route: "Adana - Gaziantep",
+                            purpose: "Eğitim",
+                            startDate: "01.10.2025",
+                            endDate: "05.10.2025",
+                            status: "Planlandı"
+                        },
+                        {
+                            route: "Trabzon - Rize",
+                            purpose: "Seminer",
+                            startDate: "11.11.2025",
+                            endDate: "13.11.2025",
+                            status: "Gerçekleşti"
+                        },
+                        {
+                            route: "Konya - Kayseri",
+                            purpose: "Denetim",
+                            startDate: "02.03.2025",
+                            endDate: "04.03.2025",
+                            status: "Gerçekleşti"
+                        },
+                        {
+                            route: "Mersin - Hatay",
+                            purpose: "Lojistik",
+                            startDate: "18.04.2025",
+                            endDate: "20.04.2025",
+                            status: "Planlandı"
+                        },
+                        {
+                            route: "Edirne - Tekirdağ",
+                            purpose: "Eğitim",
+                            startDate: "25.05.2025",
+                            endDate: "27.05.2025",
+                            status: "Gerçekleşti"
+                        },
+                        {
+                            route: "Samsun - Ordu",
+                            purpose: "Toplantı",
+                            startDate: "30.06.2025",
+                            endDate: "02.07.2025",
+                            status: "İptal Edildi"
+                        },
+                        {
+                            route: "Kocaeli - Sakarya",
+                            purpose: "Müşteri Ziyareti",
+                            startDate: "05.07.2025",
+                            endDate: "06.07.2025",
+                            status: "Gerçekleşti"
+                        },
+                        {
+                            route: "Denizli - Muğla",
+                            purpose: "Fuar",
+                            startDate: "12.08.2025",
+                            endDate: "16.08.2025",
+                            status: "Planlandı"
+                        },
+                        {
+                            route: "Malatya - Elazığ",
+                            purpose: "Seminer",
+                            startDate: "19.09.2025",
+                            endDate: "21.09.2025",
+                            status: "Gerçekleşti"
+                        },
+                        {
+                            route: "Kars - Erzurum",
+                            purpose: "Toplantı",
+                            startDate: "03.10.2025",
+                            endDate: "05.10.2025",
+                            status: "Planlandı"
+                        },
+                        {
+                            route: "Balıkesir - Çanakkale",
+                            purpose: "Müşteri Ziyareti",
+                            startDate: "22.11.2025",
+                            endDate: "24.11.2025",
+                            status: "Gerçekleşti"
+                        }
                     ]
                 });
             }, 1000);

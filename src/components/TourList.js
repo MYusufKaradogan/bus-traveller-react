@@ -4,10 +4,11 @@ import DataGrid from "components/datagrid/DataGrid";
 import TourView from "components/TourView";
 import {Card} from "antd";
 import i18n from "i18n";
+import TourListHeaderExtra from "./TourListHeaderExtra";
 
 const TourList = () => {
     return (
-        <Card title={i18n.t("pages.userList")} variant="borderless">
+        <Card title={i18n.t("busTraveller.tourList")} variant="borderless" extra={ <TourListHeaderExtra /> }>
             <TourListDG/>
         </Card>
     );
@@ -18,16 +19,15 @@ const TourListDG = () => {
         queryName: "tours/getAll",
         method: "GET",
         columnNameList: [
-            {name: "username", align: "left", title: "register.username"},
-            {name: "name", align: "left", title: "register.name"},
-            {name: "surname", align: "left", title: "register.surname"},
-            {name: "phone", align: "left", title: "register.phone"},
-            {name: "role", align: "left", title: "register.role"},
-            {name: "email", align: "left", title: "register.email"},
+            {name: "route", align: "left", title: "busTraveller.route"},
+            {name: "purpose", align: "left", title: "busTraveller.purpose"},
+            {name: "startDate", align: "left", title: "busTraveller.startDate"},
+            {name: "endDate", align: "left", title: "busTraveller.endDate"},
+            {name: "status", align: "left", title: "busTraveller.status"},
         ],
     }
 
-    dataGridProps.columnNameList.push({name: "id", title: "infocard", columnType: "InfoCardLink", comp: TourView});
+    dataGridProps.columnNameList.push({name: "id", title: "busTraveller.infocard", columnType: "InfoCardLink", comp: TourView});
 
     return <DataGrid {...dataGridProps} />;
 };

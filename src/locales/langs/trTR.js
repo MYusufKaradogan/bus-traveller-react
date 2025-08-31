@@ -815,9 +815,17 @@ export default {
         rejectReasonHolder: "Red nedenini buraya yazınız...",
         giveUp: "Vazgeç",
         requestReject: "Talep Reddediliyor",
-
     },
     aboutUs: {
         aboutUsPage: "Hakkımızda",
+    },
+    busTraveller: {
+        route: "Route",
+        purpose: "Travel Purpose",
+        startDate: "Start Date",
+        endDate: "End Date",
+        status: "Status",
+        tourList: "Tour List",
+        infocard: "Infocard",
     }
 }
