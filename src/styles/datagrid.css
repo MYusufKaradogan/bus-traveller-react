@@ -1,0 +1,31 @@
+.table-row-light {
+    opacity: 0.5;
+    background-color: #ffffff;
+}
+
+.table-row-dark {
+    opacity: 0.5;
+    background-color: #fbfbfb;
+}
+
+.table-group-header {
+    font-weight: bolder;
+}
+
+.ant-table-content {
+    overflow: auto !important;
+    max-height: calc(100vh - 200px);
+}
+
+.ant-table-thead, .ant-table-thead > tr > th {
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+}
+
+.ant-table-thead .ant-table-cell {
+    opacity: 0.5;
+    background-color: #F5F5F5;
+    border-right: 1px solid #d9d9d9;
+    border-bottom: 1px solid #d9d9d9;
+}
