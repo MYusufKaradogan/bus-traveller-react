@@ -164,7 +164,8 @@ nav {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url(img/background6.jpg);
+    /*background-image: url(img/background6.jpg);*/
+    background: linear-gradient(90deg,rgba(171, 228, 255, 0.86) 0%, rgba(255, 255, 255, 0.56) 83%, rgba(204, 204, 204, 1) 100%);
     background-color: rgba(255, 255,255, 0.5); /* %50 şeffaf renk */
     background-blend-mode: lighten; /* veya overlay, multiply */
     background-position: center;
@@ -742,4 +743,12 @@ minmax(0, 1fr);
 
 .ant-layout-content,.header-layout  {
     background-color: #ffffff; /* %50 şeffaf renk */
+}
+
+
+.page-content {
+    height: calc(100vh - 112px);
+    margin: 8px 8px;
+    padding: 8px;
+    overflow: auto;
 }

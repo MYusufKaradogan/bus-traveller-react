@@ -18,12 +18,12 @@ function App() {
         <div>
             <MainLayout>
                 <Routes>
-                    <Route path="/" element={<Home/>}/>
+                    <Route path="/home" element={<Home/>}/>
                     <Route path="/about" element={<About/>}/>
                     <Route path="/contact" element={<Contact/>}/>
                     <Route path="/tours" element={<Tours/>}/>
 
-                    <Route path="/dashboard" element={<Dashboard/>}/>
+                    <Route path="/" element={<Dashboard/>}/>
                     <Route path="/travel-planning" element={<TravelPlanning/>}/>
                     <Route path="/reservation-management" element={<ReservationManagement/>}/>
                     <Route path="/expense-management" element={<ExpenseManagement/>}/>
