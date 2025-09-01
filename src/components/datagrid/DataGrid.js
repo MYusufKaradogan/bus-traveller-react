@@ -170,7 +170,7 @@ const DataGrid = (props) => {
             rowKey={record => record.id}
             sticky
             bordered={true}
-            size="small"
+            size="large"
             columns={components.current.columns}
             dataSource={state.data}
             rowSelection={{

@@ -83,10 +83,6 @@ body {
     font-family: "DM Sans", sans-serif;
 }
 
-.header-layout {
-    background-color: transparent;
-}
-
 nav {
     position: fixed;
     isolation: isolate;
@@ -152,7 +148,7 @@ nav {
 
 .main-layout > header {
     min-height: 75vh;
-    margin-top: 5rem;
+    margin-top: 2rem;
     padding-inline: 1rem;
     position: relative;
     isolation: isolate;
@@ -181,7 +177,7 @@ nav {
 }
 
 .header__content {
-    padding: 4rem 1rem;
+    padding: 1rem 1rem;
 }
 
 
@@ -734,9 +730,13 @@ minmax(0, 1fr);
     }
 }
 
-.ant-card, .ant-table-container {
+.ant-card {
     background-size: cover;
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.1); /* %50 şeffaf renk */
+    background-color: rgba(255, 255,255, 0.6); /* %50 şeffaf renk */
     background-blend-mode: overlay; /* veya overlay, multiply */
+}
+
+.ant-layout-content,.header-layout  {
+    background-color: #ffffff; /* %50 şeffaf renk */
 }

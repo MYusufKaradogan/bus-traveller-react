@@ -1,11 +1,11 @@
-.table-row-light {
+.table-row-light2 {
     opacity: 0.5;
-    background-color: #ffffff;
+    background-color: #f0effd;
 }
 
 .table-row-dark {
-    opacity: 0.5;
-    background-color: #fbfbfb;
+    background-color: #f5f5f5;
+    opacity: 0.8;
 }
 
 .table-group-header {
@@ -19,13 +19,27 @@
 
 .ant-table-thead, .ant-table-thead > tr > th {
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 3;
 }
 
 .ant-table-thead .ant-table-cell {
-    opacity: 0.5;
-    background-color: #F5F5F5;
     border-right: 1px solid #d9d9d9;
     border-bottom: 1px solid #d9d9d9;
+
+}
+
+.ant-table-wrapper {
+    padding: 16px;
+}
+
+.ant-table-container {
+    background-image: url('img/ticket2.avif');
+    background-size: auto;
+    background-position: center;
+    background-color: rgba(255, 255,255, 0.8); /* %50 şeffaf renk */
+    background-blend-mode: lighten; /* veya overlay, multiply */
+    background-repeat: repeat;
+    border-radius: 8px;
+    padding: 16px;
 }

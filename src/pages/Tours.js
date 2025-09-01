@@ -7,7 +7,9 @@ function Tours() {
             <header>
                 <section className="section__container destination__container" id="about">
                     <h1>Our Tours</h1>
+                    <br/>
                     <p>Explore our available bus tours.</p>
+                    <br/>
                     <TourList/>
                 </section>
             </header>
