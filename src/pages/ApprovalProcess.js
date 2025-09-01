@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     Card,
     Table,
@@ -8,7 +8,6 @@ import {
     Typography,
     Row,
     Col,
-    Steps,
     Modal,
     Form,
     Input,
@@ -31,8 +30,8 @@ import {
     MailOutlined
 } from '@ant-design/icons';
 
-const { Title, Text, Paragraph } = Typography;
-const { TextArea } = Input;
+const {Title, Text,} = Typography;
+const {TextArea} = Input;
 
 const ApprovalProcess = () => {
     const [selectedRecord, setSelectedRecord] = useState(null);
@@ -137,37 +136,53 @@ const ApprovalProcess = () => {
 
     const getStatusColor = (status) => {
         switch (status) {
-            case 'approved': return 'green';
-            case 'pending': return 'orange';
-            case 'rejected': return 'red';
-            default: return 'default';
+            case 'approved':
+                return 'green';
+            case 'pending':
+                return 'orange';
+            case 'rejected':
+                return 'red';
+            default:
+                return 'default';
         }
     };
 
     const getStatusText = (status) => {
         switch (status) {
-            case 'approved': return 'Onaylandı';
-            case 'pending': return 'Beklemede';
-            case 'rejected': return 'Reddedildi';
-            default: return 'Bilinmiyor';
+            case 'approved':
+                return 'Onaylandı';
+            case 'pending':
+                return 'Beklemede';
+            case 'rejected':
+                return 'Reddedildi';
+            default:
+                return 'Bilinmiyor';
         }
     };
 
     const getPriorityColor = (priority) => {
         switch (priority) {
-            case 'high': return 'red';
-            case 'normal': return 'blue';
-            case 'low': return 'green';
-            default: return 'default';
+            case 'high':
+                return 'red';
+            case 'normal':
+                return 'blue';
+            case 'low':
+                return 'green';
+            default:
+                return 'default';
         }
     };
 
     const getPriorityText = (priority) => {
         switch (priority) {
-            case 'high': return 'Yüksek';
-            case 'normal': return 'Normal';
-            case 'low': return 'Düşük';
-            default: return 'Normal';
+            case 'high':
+                return 'Yüksek';
+            case 'normal':
+                return 'Normal';
+            case 'low':
+                return 'Düşük';
+            default:
+                return 'Normal';
         }
     };
 
@@ -210,8 +225,8 @@ const ApprovalProcess = () => {
                 </Tag>
             ),
             filters: [
-                { text: 'Seyahat', value: 'travel' },
-                { text: 'Harcama', value: 'expense' }
+                {text: 'Seyahat', value: 'travel'},
+                {text: 'Harcama', value: 'expense'}
             ],
             onFilter: (value, record) => record.type === value
         },
@@ -227,8 +242,8 @@ const ApprovalProcess = () => {
             key: 'requester',
             render: (name, record) => (
                 <div>
-                    <div><UserOutlined /> {name}</div>
-                    <Text type="secondary" style={{ fontSize: '12px' }}>
+                    <div><UserOutlined/> {name}</div>
+                    <Text type="secondary" style={{fontSize: '12px'}}>
                         {record.department}
                     </Text>
                 </div>
@@ -240,7 +255,7 @@ const ApprovalProcess = () => {
             key: 'submitDate',
             render: (date) => (
                 <div>
-                    <CalendarOutlined /> {date}
+                    <CalendarOutlined/> {date}
                 </div>
             ),
             sorter: (a, b) => new Date(a.submitDate) - new Date(b.submitDate)
@@ -266,9 +281,9 @@ const ApprovalProcess = () => {
                 </Tag>
             ),
             filters: [
-                { text: 'Yüksek', value: 'high' },
-                { text: 'Normal', value: 'normal' },
-                { text: 'Düşük', value: 'low' }
+                {text: 'Yüksek', value: 'high'},
+                {text: 'Normal', value: 'normal'},
+                {text: 'Düşük', value: 'low'}
             ],
             onFilter: (value, record) => record.priority === value
         },
@@ -282,9 +297,9 @@ const ApprovalProcess = () => {
                 </Tag>
             ),
             filters: [
-                { text: 'Onaylandı', value: 'approved' },
-                { text: 'Beklemede', value: 'pending' },
-                { text: 'Reddedildi', value: 'rejected' }
+                {text: 'Onaylandı', value: 'approved'},
+                {text: 'Beklemede', value: 'pending'},
+                {text: 'Reddedildi', value: 'rejected'}
             ],
             onFilter: (value, record) => record.status === value
         },
@@ -292,9 +307,9 @@ const ApprovalProcess = () => {
             title: 'İlerleme',
             key: 'progress',
             render: (_, record) => (
-                <div style={{ width: 100 }}>
-                    <div style={{ marginBottom: 4 }}>
-                        <Text style={{ fontSize: '12px' }}>
+                <div style={{width: 100}}>
+                    <div style={{marginBottom: 4}}>
+                        <Text style={{fontSize: '12px'}}>
                             {record.currentStep}/{record.totalSteps}
                         </Text>
                     </div>
@@ -309,7 +324,7 @@ const ApprovalProcess = () => {
                             height: '100%',
                             backgroundColor: record.status === 'approved' ? '#52c41a' : '#1890ff',
                             borderRadius: '3px'
-                        }} />
+                        }}/>
                     </div>
                 </div>
             )
@@ -321,20 +336,20 @@ const ApprovalProcess = () => {
                 <Space>
                     <Button
                         type="link"
-                        icon={<EyeOutlined />}
+                        icon={<EyeOutlined/>}
                         onClick={() => handleViewDetail(record)}
                     />
                     {record.status === 'pending' && (
                         <>
                             <Button
                                 type="link"
-                                icon={<CheckOutlined />}
-                                style={{ color: 'green' }}
+                                icon={<CheckOutlined/>}
+                                style={{color: 'green'}}
                                 onClick={() => handleApprovalAction(record, 'approve')}
                             />
                             <Button
                                 type="link"
-                                icon={<StopOutlined />}
+                                icon={<StopOutlined/>}
                                 danger
                                 onClick={() => handleApprovalAction(record, 'reject')}
                             />
@@ -348,260 +363,264 @@ const ApprovalProcess = () => {
     const pendingCount = approvalData.filter(item => item.status === 'pending').length;
     const approvedCount = approvalData.filter(item => item.status === 'approved').length;
     const totalAmount = approvalData.reduce((sum, item) => {
-        if (item.currency === 'TRY') return sum + item.amount;
-        if (item.currency === 'EUR') return sum + (item.amount * 35.2); // Kur hesabı
+        if (item.currency === 'TRY') {
+            return sum + item.amount;
+        }
+        if (item.currency === 'EUR') {
+            return sum + (item.amount * 35.2);
+        } // Kur hesabı
         return sum;
     }, 0);
 
     return (
-        <div style={{ padding: '24px' }}>
-            <Title level={2}>
-                <CheckCircleOutlined /> Onay Süreçleri
+        <header>
+            <section className="section__container destination__container"><Title level={2}>
+                <CheckCircleOutlined/> Onay Süreçleri
             </Title>
 
-            {/* Özet Kartları */}
-            <Row gutter={16} style={{ marginBottom: '24px' }}>
-                <Col span={6}>
-                    <Card>
-                        <div style={{ textAlign: 'center' }}>
-                            <ClockCircleOutlined style={{ fontSize: '24px', color: '#faad14' }} />
-                            <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#faad14' }}>
-                                {pendingCount}
+                {/* Özet Kartları */}
+                <Row gutter={16} style={{marginBottom: '24px'}}>
+                    <Col span={6}>
+                        <Card>
+                            <div style={{textAlign: 'center'}}>
+                                <ClockCircleOutlined style={{fontSize: '24px', color: '#faad14'}}/>
+                                <div style={{fontSize: '24px', fontWeight: 'bold', color: '#faad14'}}>
+                                    {pendingCount}
+                                </div>
+                                <Text type="secondary">Bekleyen Onay</Text>
                             </div>
-                            <Text type="secondary">Bekleyen Onay</Text>
-                        </div>
-                    </Card>
-                </Col>
-                <Col span={6}>
-                    <Card>
-                        <div style={{ textAlign: 'center' }}>
-                            <CheckCircleOutlined style={{ fontSize: '24px', color: '#52c41a' }} />
-                            <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#52c41a' }}>
-                                {approvedCount}
+                        </Card>
+                    </Col>
+                    <Col span={6}>
+                        <Card>
+                            <div style={{textAlign: 'center'}}>
+                                <CheckCircleOutlined style={{fontSize: '24px', color: '#52c41a'}}/>
+                                <div style={{fontSize: '24px', fontWeight: 'bold', color: '#52c41a'}}>
+                                    {approvedCount}
+                                </div>
+                                <Text type="secondary">Onaylanmış</Text>
                             </div>
-                            <Text type="secondary">Onaylanmış</Text>
-                        </div>
-                    </Card>
-                </Col>
-                <Col span={6}>
-                    <Card>
-                        <div style={{ textAlign: 'center' }}>
-                            <FileTextOutlined style={{ fontSize: '24px', color: '#1890ff' }} />
-                            <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#1890ff' }}>
-                                {approvalData.length}
+                        </Card>
+                    </Col>
+                    <Col span={6}>
+                        <Card>
+                            <div style={{textAlign: 'center'}}>
+                                <FileTextOutlined style={{fontSize: '24px', color: '#1890ff'}}/>
+                                <div style={{fontSize: '24px', fontWeight: 'bold', color: '#1890ff'}}>
+                                    {approvalData.length}
+                                </div>
+                                <Text type="secondary">Toplam Başvuru</Text>
                             </div>
-                            <Text type="secondary">Toplam Başvuru</Text>
-                        </div>
-                    </Card>
-                </Col>
-                <Col span={6}>
-                    <Card>
-                        <div style={{ textAlign: 'center' }}>
-                            <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#722ed1' }}>
-                                {totalAmount.toFixed(0)} ₺
+                        </Card>
+                    </Col>
+                    <Col span={6}>
+                        <Card>
+                            <div style={{textAlign: 'center'}}>
+                                <div style={{fontSize: '20px', fontWeight: 'bold', color: '#722ed1'}}>
+                                    {totalAmount.toFixed(0)} ₺
+                                </div>
+                                <Text type="secondary">Toplam Tutar</Text>
                             </div>
-                            <Text type="secondary">Toplam Tutar</Text>
-                        </div>
-                    </Card>
-                </Col>
-            </Row>
+                        </Card>
+                    </Col>
+                </Row>
 
-            {/* Ana Tablo */}
-            <Card title="Onay Bekleyen İşlemler">
-                <Table
-                    columns={columns}
-                    dataSource={approvalData}
-                    rowKey="id"
-                    pagination={{
-                        pageSize: 10,
-                        showSizeChanger: true,
-                        showTotal: (total) => `Toplam ${total} kayıt`
-                    }}
-                />
-            </Card>
+                {/* Ana Tablo */}
+                <Card title="Onay Bekleyen İşlemler">
+                    <Table
+                        columns={columns}
+                        dataSource={approvalData}
+                        rowKey="id"
+                        pagination={{
+                            pageSize: 10,
+                            showSizeChanger: true,
+                            showTotal: (total) => `Toplam ${total} kayıt`
+                        }}
+                    />
+                </Card>
 
-            {/* Detay Modal */}
-            <Modal
-                title="Onay Detayları"
-                open={isDetailModalVisible}
-                onCancel={() => setIsDetailModalVisible(false)}
-                footer={null}
-                width={800}
-            >
-                {selectedRecord && (
-                    <>
-                        <Descriptions title="Genel Bilgiler" bordered>
-                            <Descriptions.Item label="Başlık" span={2}>
-                                {selectedRecord.title}
-                            </Descriptions.Item>
-                            <Descriptions.Item label="Tip">
-                                <Tag color={selectedRecord.type === 'travel' ? 'blue' : 'green'}>
-                                    {getTypeText(selectedRecord.type)}
-                                </Tag>
-                            </Descriptions.Item>
-                            <Descriptions.Item label="Başvuran">
-                                {selectedRecord.requester}
-                            </Descriptions.Item>
-                            <Descriptions.Item label="Departman">
-                                {selectedRecord.department}
-                            </Descriptions.Item>
-                            <Descriptions.Item label="Başvuru Tarihi">
-                                {selectedRecord.submitDate}
-                            </Descriptions.Item>
-                            <Descriptions.Item label="Tutar" span={2}>
-                                <Text strong>
-                                    {selectedRecord.amount} {selectedRecord.currency}
-                                </Text>
-                            </Descriptions.Item>
-                            <Descriptions.Item label="Öncelik">
-                                <Tag color={getPriorityColor(selectedRecord.priority)}>
-                                    {getPriorityText(selectedRecord.priority)}
-                                </Tag>
-                            </Descriptions.Item>
-                            <Descriptions.Item label="Açıklama" span={3}>
-                                {selectedRecord.description}
-                            </Descriptions.Item>
-                        </Descriptions>
+                {/* Detay Modal */}
+                <Modal
+                    title="Onay Detayları"
+                    open={isDetailModalVisible}
+                    onCancel={() => setIsDetailModalVisible(false)}
+                    footer={null}
+                    width={800}
+                >
+                    {selectedRecord && (
+                        <>
+                            <Descriptions title="Genel Bilgiler" bordered>
+                                <Descriptions.Item label="Başlık" span={2}>
+                                    {selectedRecord.title}
+                                </Descriptions.Item>
+                                <Descriptions.Item label="Tip">
+                                    <Tag color={selectedRecord.type === 'travel' ? 'blue' : 'green'}>
+                                        {getTypeText(selectedRecord.type)}
+                                    </Tag>
+                                </Descriptions.Item>
+                                <Descriptions.Item label="Başvuran">
+                                    {selectedRecord.requester}
+                                </Descriptions.Item>
+                                <Descriptions.Item label="Departman">
+                                    {selectedRecord.department}
+                                </Descriptions.Item>
+                                <Descriptions.Item label="Başvuru Tarihi">
+                                    {selectedRecord.submitDate}
+                                </Descriptions.Item>
+                                <Descriptions.Item label="Tutar" span={2}>
+                                    <Text strong>
+                                        {selectedRecord.amount} {selectedRecord.currency}
+                                    </Text>
+                                </Descriptions.Item>
+                                <Descriptions.Item label="Öncelik">
+                                    <Tag color={getPriorityColor(selectedRecord.priority)}>
+                                        {getPriorityText(selectedRecord.priority)}
+                                    </Tag>
+                                </Descriptions.Item>
+                                <Descriptions.Item label="Açıklama" span={3}>
+                                    {selectedRecord.description}
+                                </Descriptions.Item>
+                            </Descriptions>
 
-                        <Divider />
+                            <Divider/>
 
-                        {/* Onay Süreci */}
-                        <Title level={4}>Onay Süreci</Title>
-                        <Timeline>
-                            {selectedRecord.approvalHistory.map((step, index) => (
-                                <Timeline.Item
-                                    key={index}
-                                    dot={
-                                        step.status === 'completed' ? (
-                                            <CheckCircleOutlined style={{ color: 'green' }} />
-                                        ) : step.status === 'pending' ? (
-                                            <ClockCircleOutlined style={{ color: 'orange' }} />
-                                        ) : (
-                                            <Badge />
-                                        )
-                                    }
-                                    color={
-                                        step.status === 'completed' ? 'green' :
-                                            step.status === 'pending' ? 'orange' : 'gray'
-                                    }
+                            {/* Onay Süreci */}
+                            <Title level={4}>Onay Süreci</Title>
+                            <Timeline>
+                                {selectedRecord.approvalHistory.map((step, index) => (
+                                    <Timeline.Item
+                                        key={index}
+                                        dot={
+                                            step.status === 'completed' ? (
+                                                <CheckCircleOutlined style={{color: 'green'}}/>
+                                            ) : step.status === 'pending' ? (
+                                                <ClockCircleOutlined style={{color: 'orange'}}/>
+                                            ) : (
+                                                <Badge/>
+                                            )
+                                        }
+                                        color={
+                                            step.status === 'completed' ? 'green' :
+                                                step.status === 'pending' ? 'orange' : 'gray'
+                                        }
+                                    >
+                                        <div>
+                                            <Text strong>{step.step}</Text>
+                                            <br/>
+                                            <Text type="secondary">
+                                                Onaylayan: {step.approver}
+                                            </Text>
+                                            {step.date && (
+                                                <>
+                                                    <br/>
+                                                    <Text type="secondary">
+                                                        Tarih: {step.date}
+                                                    </Text>
+                                                </>
+                                            )}
+                                            {step.note && (
+                                                <>
+                                                    <br/>
+                                                    <Text italic>{step.note}</Text>
+                                                </>
+                                            )}
+                                        </div>
+                                    </Timeline.Item>
+                                ))}
+                            </Timeline>
+
+                            {selectedRecord.status === 'pending' && (
+                                <div style={{marginTop: '16px', textAlign: 'right'}}>
+                                    <Space>
+                                        <Button
+                                            type="primary"
+                                            icon={<CheckOutlined/>}
+                                            onClick={() => {
+                                                setIsDetailModalVisible(false);
+                                                handleApprovalAction(selectedRecord, 'approve');
+                                            }}
+                                        >
+                                            Onayla
+                                        </Button>
+                                        <Button
+                                            danger
+                                            icon={<StopOutlined/>}
+                                            onClick={() => {
+                                                setIsDetailModalVisible(false);
+                                                handleApprovalAction(selectedRecord, 'reject');
+                                            }}
+                                        >
+                                            Reddet
+                                        </Button>
+                                    </Space>
+                                </div>
+                            )}
+                        </>
+                    )}
+                </Modal>
+
+                {/* Onay/Red Modal */}
+                <Modal
+                    title={`${approvalAction === 'approve' ? 'Onayla' : 'Reddet'}: ${selectedRecord?.title}`}
+                    open={isApprovalModalVisible}
+                    onCancel={() => setIsApprovalModalVisible(false)}
+                    footer={null}
+                    width={500}
+                >
+                    <Form form={form} layout="vertical" onFinish={submitApproval}>
+                        <Form.Item
+                            label="Not"
+                            name="note"
+                            rules={[
+                                {required: approvalAction === 'reject', message: 'Red nedeni zorunludur!'}
+                            ]}
+                        >
+                            <TextArea
+                                rows={4}
+                                placeholder={
+                                    approvalAction === 'approve'
+                                        ? 'Onay notu (opsiyonel)'
+                                        : 'Lütfen red sebebini belirtin'
+                                }
+                            />
+                        </Form.Item>
+
+                        <Form.Item
+                            label="Bildirim Gönder"
+                            name="sendNotification"
+                            initialValue={true}
+                        >
+                            <Select>
+                                <Select.Option value={true}>
+                                    <MailOutlined/> E-posta gönder
+                                </Select.Option>
+                                <Select.Option value={false}>
+                                    Bildirim gönderme
+                                </Select.Option>
+                            </Select>
+                        </Form.Item>
+
+                        <Form.Item>
+                            <Space>
+                                <Button
+                                    type="primary"
+                                    htmlType="submit"
+                                    style={{
+                                        backgroundColor: approvalAction === 'approve' ? '#52c41a' : '#ff4d4f',
+                                        borderColor: approvalAction === 'approve' ? '#52c41a' : '#ff4d4f'
+                                    }}
                                 >
-                                    <div>
-                                        <Text strong>{step.step}</Text>
-                                        <br />
-                                        <Text type="secondary">
-                                            Onaylayan: {step.approver}
-                                        </Text>
-                                        {step.date && (
-                                            <>
-                                                <br />
-                                                <Text type="secondary">
-                                                    Tarih: {step.date}
-                                                </Text>
-                                            </>
-                                        )}
-                                        {step.note && (
-                                            <>
-                                                <br />
-                                                <Text italic>{step.note}</Text>
-                                            </>
-                                        )}
-                                    </div>
-                                </Timeline.Item>
-                            ))}
-                        </Timeline>
-
-                        {selectedRecord.status === 'pending' && (
-                            <div style={{ marginTop: '16px', textAlign: 'right' }}>
-                                <Space>
-                                    <Button
-                                        type="primary"
-                                        icon={<CheckOutlined />}
-                                        onClick={() => {
-                                            setIsDetailModalVisible(false);
-                                            handleApprovalAction(selectedRecord, 'approve');
-                                        }}
-                                    >
-                                        Onayla
-                                    </Button>
-                                    <Button
-                                        danger
-                                        icon={<StopOutlined />}
-                                        onClick={() => {
-                                            setIsDetailModalVisible(false);
-                                            handleApprovalAction(selectedRecord, 'reject');
-                                        }}
-                                    >
-                                        Reddet
-                                    </Button>
-                                </Space>
-                            </div>
-                        )}
-                    </>
-                )}
-            </Modal>
-
-            {/* Onay/Red Modal */}
-            <Modal
-                title={`${approvalAction === 'approve' ? 'Onayla' : 'Reddet'}: ${selectedRecord?.title}`}
-                open={isApprovalModalVisible}
-                onCancel={() => setIsApprovalModalVisible(false)}
-                footer={null}
-                width={500}
-            >
-                <Form form={form} layout="vertical" onFinish={submitApproval}>
-                    <Form.Item
-                        label="Not"
-                        name="note"
-                        rules={[
-                            { required: approvalAction === 'reject', message: 'Red nedeni zorunludur!' }
-                        ]}
-                    >
-                        <TextArea
-                            rows={4}
-                            placeholder={
-                                approvalAction === 'approve'
-                                    ? 'Onay notu (opsiyonel)'
-                                    : 'Lütfen red sebebini belirtin'
-                            }
-                        />
-                    </Form.Item>
-
-                    <Form.Item
-                        label="Bildirim Gönder"
-                        name="sendNotification"
-                        initialValue={true}
-                    >
-                        <Select>
-                            <Select.Option value={true}>
-                                <MailOutlined /> E-posta gönder
-                            </Select.Option>
-                            <Select.Option value={false}>
-                                Bildirim gönderme
-                            </Select.Option>
-                        </Select>
-                    </Form.Item>
-
-                    <Form.Item>
-                        <Space>
-                            <Button
-                                type="primary"
-                                htmlType="submit"
-                                style={{
-                                    backgroundColor: approvalAction === 'approve' ? '#52c41a' : '#ff4d4f',
-                                    borderColor: approvalAction === 'approve' ? '#52c41a' : '#ff4d4f'
-                                }}
-                            >
-                                {approvalAction === 'approve' ? 'Onayla' : 'Reddet'}
-                            </Button>
-                            <Button onClick={() => setIsApprovalModalVisible(false)}>
-                                İptal
-                            </Button>
-                        </Space>
-                    </Form.Item>
-                </Form>
-            </Modal>
-        </div>
-    );
+                                    {approvalAction === 'approve' ? 'Onayla' : 'Reddet'}
+                                </Button>
+                                <Button onClick={() => setIsApprovalModalVisible(false)}>
+                                    İptal
+                                </Button>
+                            </Space>
+                        </Form.Item>
+                    </Form>
+                </Modal>
+            </section>
+        </header>);
 };
 
 export default ApprovalProcess;

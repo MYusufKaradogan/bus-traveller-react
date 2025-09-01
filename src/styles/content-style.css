@@ -19,7 +19,7 @@
 .section__container {
     max-width: var(--max-width);
     margin: auto;
-    padding: 5rem 1rem;
+    padding: 2rem 1rem;
 }
 
 .section__header {
@@ -135,7 +135,8 @@ nav {
     font-weight: 600;
     color: var(--white);
     white-space: nowrap;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .nav__links a:hover {
@@ -164,6 +165,8 @@ nav {
     left: 50%;
     transform: translate(-50%, -50%);
     background-image: url(img/background6.jpg);
+    background-color: rgba(255, 255,255, 0.5); /* %50 şeffaf renk */
+    background-blend-mode: lighten; /* veya overlay, multiply */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     Card,
     Row,
@@ -17,7 +17,6 @@ import {
     Form,
     Input,
     message,
-    Divider
 } from 'antd';
 import {
     BarChartOutlined,
@@ -29,18 +28,19 @@ import {
     WarningOutlined,
     FileExcelOutlined,
     FilePdfOutlined,
-    CalendarOutlined
 } from '@ant-design/icons';
 
-const { Title, Text } = Typography;
-const { RangePicker } = DatePicker;
-const { TabPane } = Tabs;
+const {Title, Text} = Typography;
+const {RangePicker} = DatePicker;
+const {TabPane} = Tabs;
 
 const Reports = () => {
     const [selectedDateRange, setSelectedDateRange] = useState(null);
     const [selectedUser, setSelectedUser] = useState('all');
     const [selectedDepartment, setSelectedDepartment] = useState('all');
     const [activeTab, setActiveTab] = useState('user');
+
+    console.log(selectedDateRange)
 
     // Statik veri
     const users = [
@@ -185,37 +185,53 @@ const Reports = () => {
 
     const getStatusColor = (status) => {
         switch (status) {
-            case 'normal': return 'green';
-            case 'warning': return 'orange';
-            case 'over': return 'red';
-            default: return 'blue';
+            case 'normal':
+                return 'green';
+            case 'warning':
+                return 'orange';
+            case 'over':
+                return 'red';
+            default:
+                return 'blue';
         }
     };
 
     const getViolationSeverityColor = (severity) => {
         switch (severity) {
-            case 'high': return 'red';
-            case 'medium': return 'orange';
-            case 'low': return 'blue';
-            default: return 'default';
+            case 'high':
+                return 'red';
+            case 'medium':
+                return 'orange';
+            case 'low':
+                return 'blue';
+            default:
+                return 'default';
         }
     };
 
     const getSeverityText = (severity) => {
         switch (severity) {
-            case 'high': return 'Yüksek';
-            case 'medium': return 'Orta';
-            case 'low': return 'Düşük';
-            default: return 'Normal';
+            case 'high':
+                return 'Yüksek';
+            case 'medium':
+                return 'Orta';
+            case 'low':
+                return 'Düşük';
+            default:
+                return 'Normal';
         }
     };
 
     const getViolationTypeText = (type) => {
         switch (type) {
-            case 'limit_exceeded': return 'Limit Aşımı';
-            case 'late_approval': return 'Geç Onay';
-            case 'missing_receipt': return 'Eksik Belge';
-            default: return 'Diğer';
+            case 'limit_exceeded':
+                return 'Limit Aşımı';
+            case 'late_approval':
+                return 'Geç Onay';
+            case 'missing_receipt':
+                return 'Eksik Belge';
+            default:
+                return 'Diğer';
         }
     };
 
@@ -231,8 +247,8 @@ const Reports = () => {
             key: 'user',
             render: (name, record) => (
                 <div>
-                    <div><UserOutlined /> {name}</div>
-                    <Text type="secondary" style={{ fontSize: '12px' }}>
+                    <div><UserOutlined/> {name}</div>
+                    <Text type="secondary" style={{fontSize: '12px'}}>
                         {record.department}
                     </Text>
                 </div>
@@ -274,7 +290,7 @@ const Reports = () => {
                         status={record.status === 'over' ? 'exception' :
                             record.status === 'warning' ? 'active' : 'success'}
                     />
-                    <Text style={{ fontSize: '12px' }}>{usage}%</Text>
+                    <Text style={{fontSize: '12px'}}>{usage}%</Text>
                 </div>
             )
         },
@@ -299,7 +315,7 @@ const Reports = () => {
             key: 'department',
             render: (name) => (
                 <div>
-                    <BankOutlined /> {name}
+                    <BankOutlined/> {name}
                 </div>
             )
         },
@@ -353,8 +369,8 @@ const Reports = () => {
             key: 'user',
             render: (name, record) => (
                 <div>
-                    <div><UserOutlined /> {name}</div>
-                    <Text type="secondary" style={{ fontSize: '12px' }}>
+                    <div><UserOutlined/> {name}</div>
+                    <Text type="secondary" style={{fontSize: '12px'}}>
                         {record.department}
                     </Text>
                 </div>
@@ -382,7 +398,7 @@ const Reports = () => {
                 <div>
                     <Text strong>{amount} ₺</Text>
                     {record.limit && (
-                        <div style={{ fontSize: '12px', color: 'red' }}>
+                        <div style={{fontSize: '12px', color: 'red'}}>
                             Limit: {record.limit} ₺
                         </div>
                     )}
@@ -422,222 +438,223 @@ const Reports = () => {
     const pendingViolations = policyViolations.filter(v => v.status === 'pending').length;
 
     return (
-        <div style={{ padding: '24px' }}>
-            <Title level={2}>
-                <BarChartOutlined /> Raporlama & Denetim
-            </Title>
+        <header>
+            <section className="section__container destination__container">
+                <Title level={2}>
+                    <BarChartOutlined/> Raporlama & Denetim
+                </Title>
 
-            {/* Filtre Seçenekleri */}
-            <Card style={{ marginBottom: '24px' }}>
-                <Row gutter={16}>
-                    <Col span={8}>
-                        <Text strong>Tarih Aralığı:</Text>
-                        <RangePicker
-                            style={{ width: '100%', marginTop: '8px' }}
-                            onChange={setSelectedDateRange}
-                        />
+                {/* Filtre Seçenekleri */}
+                <Card style={{marginBottom: '24px'}}>
+                    <Row gutter={16}>
+                        <Col span={8}>
+                            <Text strong>Tarih Aralığı:</Text>
+                            <RangePicker
+                                style={{width: '100%', marginTop: '8px'}}
+                                onChange={setSelectedDateRange}
+                            />
+                        </Col>
+                        <Col span={8}>
+                            <Text strong>Kullanıcı:</Text>
+                            <Select
+                                style={{width: '100%', marginTop: '8px'}}
+                                value={selectedUser}
+                                onChange={setSelectedUser}
+                            >
+                                <Select.Option value="all">Tüm Kullanıcılar</Select.Option>
+                                {users.map(user => (
+                                    <Select.Option key={user} value={user}>{user}</Select.Option>
+                                ))}
+                            </Select>
+                        </Col>
+                        <Col span={8}>
+                            <Text strong>Departman:</Text>
+                            <Select
+                                style={{width: '100%', marginTop: '8px'}}
+                                value={selectedDepartment}
+                                onChange={setSelectedDepartment}
+                            >
+                                <Select.Option value="all">Tüm Departmanlar</Select.Option>
+                                {departments.map(dept => (
+                                    <Select.Option key={dept} value={dept}>{dept}</Select.Option>
+                                ))}
+                            </Select>
+                        </Col>
+                    </Row>
+                </Card>
+
+                {/* Genel İstatistikler */}
+                <Row gutter={16} style={{marginBottom: '24px'}}>
+                    <Col span={6}>
+                        <Card>
+                            <Statistic
+                                title="Toplam Bütçe"
+                                value={totalBudget}
+                                suffix="₺"
+                                prefix={<BankOutlined/>}
+                            />
+                        </Card>
                     </Col>
-                    <Col span={8}>
-                        <Text strong>Kullanıcı:</Text>
-                        <Select
-                            style={{ width: '100%', marginTop: '8px' }}
-                            value={selectedUser}
-                            onChange={setSelectedUser}
-                        >
-                            <Select.Option value="all">Tüm Kullanıcılar</Select.Option>
-                            {users.map(user => (
-                                <Select.Option key={user} value={user}>{user}</Select.Option>
-                            ))}
-                        </Select>
+                    <Col span={6}>
+                        <Card>
+                            <Statistic
+                                title="Kullanılan Bütçe"
+                                value={totalUsed}
+                                suffix="₺"
+                                valueStyle={{color: '#1890ff'}}
+                            />
+                        </Card>
                     </Col>
-                    <Col span={8}>
-                        <Text strong>Departman:</Text>
-                        <Select
-                            style={{ width: '100%', marginTop: '8px' }}
-                            value={selectedDepartment}
-                            onChange={setSelectedDepartment}
-                        >
-                            <Select.Option value="all">Tüm Departmanlar</Select.Option>
-                            {departments.map(dept => (
-                                <Select.Option key={dept} value={dept}>{dept}</Select.Option>
-                            ))}
-                        </Select>
+                    <Col span={6}>
+                        <Card>
+                            <Statistic
+                                title="Toplam İhlal"
+                                value={totalViolations}
+                                prefix={<WarningOutlined/>}
+                                valueStyle={{color: '#faad14'}}
+                            />
+                        </Card>
+                    </Col>
+                    <Col span={6}>
+                        <Card>
+                            <Statistic
+                                title="Bekleyen İhlal"
+                                value={pendingViolations}
+                                valueStyle={{color: '#f5222d'}}
+                            />
+                        </Card>
                     </Col>
                 </Row>
-            </Card>
 
-            {/* Genel İstatistikler */}
-            <Row gutter={16} style={{ marginBottom: '24px' }}>
-                <Col span={6}>
-                    <Card>
-                        <Statistic
-                            title="Toplam Bütçe"
-                            value={totalBudget}
-                            suffix="₺"
-                            prefix={<BankOutlined />}
-                        />
-                    </Card>
-                </Col>
-                <Col span={6}>
-                    <Card>
-                        <Statistic
-                            title="Kullanılan Bütçe"
-                            value={totalUsed}
-                            suffix="₺"
-                            valueStyle={{ color: '#1890ff' }}
-                        />
-                    </Card>
-                </Col>
-                <Col span={6}>
-                    <Card>
-                        <Statistic
-                            title="Toplam İhlal"
-                            value={totalViolations}
-                            prefix={<WarningOutlined />}
-                            valueStyle={{ color: '#faad14' }}
-                        />
-                    </Card>
-                </Col>
-                <Col span={6}>
-                    <Card>
-                        <Statistic
-                            title="Bekleyen İhlal"
-                            value={pendingViolations}
-                            valueStyle={{ color: '#f5222d' }}
-                        />
-                    </Card>
-                </Col>
-            </Row>
+                {/* Ana Rapor Tabları */}
+                <Card>
+                    <div style={{marginBottom: '16px', display: 'flex', justifyContent: 'space-between'}}>
+                        <Title level={3}>Detaylı Raporlar</Title>
+                        <Space>
+                            <Button
+                                icon={<FileExcelOutlined/>}
+                                onClick={() => handleExport('excel')}
+                            >
+                                Excel
+                            </Button>
+                            <Button
+                                icon={<FilePdfOutlined/>}
+                                onClick={() => handleExport('pdf')}
+                            >
+                                PDF
+                            </Button>
+                        </Space>
+                    </div>
 
-            {/* Ana Rapor Tabları */}
-            <Card>
-                <div style={{ marginBottom: '16px', display: 'flex', justifyContent: 'space-between' }}>
-                    <Title level={3}>Detaylı Raporlar</Title>
-                    <Space>
-                        <Button
-                            icon={<FileExcelOutlined />}
-                            onClick={() => handleExport('excel')}
-                        >
-                            Excel
-                        </Button>
-                        <Button
-                            icon={<FilePdfOutlined />}
-                            onClick={() => handleExport('pdf')}
-                        >
-                            PDF
-                        </Button>
-                    </Space>
-                </div>
+                    <Tabs activeKey={activeTab} onChange={setActiveTab}>
+                        <TabPane tab="Kullanıcı Bazlı Rapor" key="user">
+                            <Alert
+                                message="Kullanıcı Harcama Raporu"
+                                description="Tüm kullanıcıların harcama detayları ve limit kullanım durumları"
+                                type="info"
+                                showIcon
+                                style={{marginBottom: '16px'}}
+                            />
+                            <Table
+                                columns={userReportColumns}
+                                dataSource={userExpenseData}
+                                rowKey="id"
+                                pagination={{
+                                    pageSize: 10,
+                                    showSizeChanger: true,
+                                    showTotal: (total) => `Toplam ${total} kullanıcı`
+                                }}
+                            />
+                        </TabPane>
 
-                <Tabs activeKey={activeTab} onChange={setActiveTab}>
-                    <TabPane tab="Kullanıcı Bazlı Rapor" key="user">
-                        <Alert
-                            message="Kullanıcı Harcama Raporu"
-                            description="Tüm kullanıcıların harcama detayları ve limit kullanım durumları"
-                            type="info"
-                            showIcon
-                            style={{ marginBottom: '16px' }}
-                        />
-                        <Table
-                            columns={userReportColumns}
-                            dataSource={userExpenseData}
-                            rowKey="id"
-                            pagination={{
-                                pageSize: 10,
-                                showSizeChanger: true,
-                                showTotal: (total) => `Toplam ${total} kullanıcı`
-                            }}
-                        />
-                    </TabPane>
+                        <TabPane tab="Departman Bazlı Rapor" key="department">
+                            <Alert
+                                message="Departman Bütçe Raporu"
+                                description="Departmanların bütçe kullanımı ve harcama analizi"
+                                type="info"
+                                showIcon
+                                style={{marginBottom: '16px'}}
+                            />
+                            <Table
+                                columns={departmentReportColumns}
+                                dataSource={departmentData}
+                                rowKey="id"
+                                pagination={{
+                                    pageSize: 10,
+                                    showTotal: (total) => `Toplam ${total} departman`
+                                }}
+                            />
+                        </TabPane>
 
-                    <TabPane tab="Departman Bazlı Rapor" key="department">
-                        <Alert
-                            message="Departman Bütçe Raporu"
-                            description="Departmanların bütçe kullanımı ve harcama analizi"
-                            type="info"
-                            showIcon
-                            style={{ marginBottom: '16px' }}
-                        />
-                        <Table
-                            columns={departmentReportColumns}
-                            dataSource={departmentData}
-                            rowKey="id"
-                            pagination={{
-                                pageSize: 10,
-                                showTotal: (total) => `Toplam ${total} departman`
-                            }}
-                        />
-                    </TabPane>
+                        <TabPane tab="Politika İhlali Raporu" key="violations">
+                            <Alert
+                                message="Politika İhlalleri"
+                                description="Limit aşımları, geç onaylar ve diğer politika ihlalleri"
+                                type="warning"
+                                showIcon
+                                style={{marginBottom: '16px'}}
+                            />
+                            <Table
+                                columns={violationColumns}
+                                dataSource={policyViolations}
+                                rowKey="id"
+                                pagination={{
+                                    pageSize: 10,
+                                    showTotal: (total) => `Toplam ${total} ihlal`
+                                }}
+                            />
+                        </TabPane>
+                    </Tabs>
+                </Card>
 
-                    <TabPane tab="Politika İhlali Raporu" key="violations">
-                        <Alert
-                            message="Politika İhlalleri"
-                            description="Limit aşımları, geç onaylar ve diğer politika ihlalleri"
-                            type="warning"
-                            showIcon
-                            style={{ marginBottom: '16px' }}
-                        />
-                        <Table
-                            columns={violationColumns}
-                            dataSource={policyViolations}
-                            rowKey="id"
-                            pagination={{
-                                pageSize: 10,
-                                showTotal: (total) => `Toplam ${total} ihlal`
-                            }}
-                        />
-                    </TabPane>
-                </Tabs>
-            </Card>
+                {/* Trend Analizi */}
+                <Row gutter={16} style={{marginTop: '24px'}}>
+                    <Col span={12}>
+                        <Card title="Aylık Harcama Trendi" extra={<LineChartOutlined/>}>
+                            <div style={{textAlign: 'center', padding: '40px 0'}}>
+                                <Text type="secondary">
+                                    Grafik burada görüntülenecek
+                                    <br/>
+                                    (Chart.js entegrasyonu ile)
+                                </Text>
+                            </div>
+                        </Card>
+                    </Col>
+                    <Col span={12}>
+                        <Card title="Departman Harcama Dağılımı" extra={<PieChartOutlined/>}>
+                            <div style={{textAlign: 'center', padding: '40px 0'}}>
+                                <Text type="secondary">
+                                    Pasta grafik burada görüntülenecek
+                                    <br/>
+                                    (Chart.js entegrasyonu ile)
+                                </Text>
+                            </div>
+                        </Card>
+                    </Col>
+                </Row>
 
-            {/* Trend Analizi */}
-            <Row gutter={16} style={{ marginTop: '24px' }}>
-                <Col span={12}>
-                    <Card title="Aylık Harcama Trendi" extra={<LineChartOutlined />}>
-                        <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                            <Text type="secondary">
-                                Grafik burada görüntülenecek
-                                <br />
-                                (Chart.js entegrasyonu ile)
-                            </Text>
-                        </div>
-                    </Card>
-                </Col>
-                <Col span={12}>
-                    <Card title="Departman Harcama Dağılımı" extra={<PieChartOutlined />}>
-                        <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                            <Text type="secondary">
-                                Pasta grafik burada görüntülenecek
-                                <br />
-                                (Chart.js entegrasyonu ile)
-                            </Text>
-                        </div>
-                    </Card>
-                </Col>
-            </Row>
-
-            {/* Özel Rapor Oluşturma */}
-            <Card title="Özel Rapor Oluştur" style={{ marginTop: '24px' }}>
-                <Form layout="inline">
-                    <Form.Item label="Rapor Adı">
-                        <Input placeholder="Rapor adı girin" />
-                    </Form.Item>
-                    <Form.Item label="Rapor Tipi">
-                        <Select style={{ width: 150 }}>
-                            <Select.Option value="summary">Özet Rapor</Select.Option>
-                            <Select.Option value="detailed">Detay Rapor</Select.Option>
-                            <Select.Option value="custom">Özel Rapor</Select.Option>
-                        </Select>
-                    </Form.Item>
-                    <Form.Item>
-                        <Button type="primary" icon={<DownloadOutlined />}>
-                            Rapor Oluştur
-                        </Button>
-                    </Form.Item>
-                </Form>
-            </Card>
-        </div>
-    );
+                {/* Özel Rapor Oluşturma */}
+                <Card title="Özel Rapor Oluştur" style={{marginTop: '24px'}}>
+                    <Form layout="inline">
+                        <Form.Item label="Rapor Adı">
+                            <Input placeholder="Rapor adı girin"/>
+                        </Form.Item>
+                        <Form.Item label="Rapor Tipi">
+                            <Select style={{width: 150}}>
+                                <Select.Option value="summary">Özet Rapor</Select.Option>
+                                <Select.Option value="detailed">Detay Rapor</Select.Option>
+                                <Select.Option value="custom">Özel Rapor</Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item>
+                            <Button type="primary" icon={<DownloadOutlined/>}>
+                                Rapor Oluştur
+                            </Button>
+                        </Form.Item>
+                    </Form>
+                </Card>
+            </section>
+        </header>);
 };
 
 export default Reports;

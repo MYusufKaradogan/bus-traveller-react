@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
     Card,
     Tabs,
@@ -32,8 +32,8 @@ import {
     TeamOutlined
 } from '@ant-design/icons';
 
-const { Title, Text } = Typography;
-const { TabPane } = Tabs;
+const {Title, Text} = Typography;
+const {TabPane} = Tabs;
 
 const Settings = () => {
     const [activeTab, setActiveTab] = useState('roles');
@@ -130,48 +130,48 @@ const Settings = () => {
     ]);
 
     const roles = [
-        { value: 'employee', label: 'Çalışan', color: 'blue' },
-        { value: 'manager', label: 'Yönetici', color: 'green' },
-        { value: 'finance', label: 'Finans', color: 'orange' },
-        { value: 'admin', label: 'Sistem Yöneticisi', color: 'red' }
+        {value: 'employee', label: 'Çalışan', color: 'blue'},
+        {value: 'manager', label: 'Yönetici', color: 'green'},
+        {value: 'finance', label: 'Finans', color: 'orange'},
+        {value: 'admin', label: 'Sistem Yöneticisi', color: 'red'}
     ];
 
     const permissions = [
-        { value: 'travel_create', label: 'Seyahat Planı Oluştur' },
-        { value: 'travel_view', label: 'Seyahat Görüntüle' },
-        { value: 'travel_approve', label: 'Seyahat Onayla' },
-        { value: 'expense_create', label: 'Harcama Ekle' },
-        { value: 'expense_view', label: 'Harcama Görüntüle' },
-        { value: 'expense_approve', label: 'Harcama Onayla' },
-        { value: 'report_view', label: 'Rapor Görüntüle' },
-        { value: 'report_export', label: 'Rapor Dışa Aktar' },
-        { value: 'settings_manage', label: 'Ayarları Yönet' },
-        { value: 'all', label: 'Tüm Yetkiler' }
+        {value: 'travel_create', label: 'Seyahat Planı Oluştur'},
+        {value: 'travel_view', label: 'Seyahat Görüntüle'},
+        {value: 'travel_approve', label: 'Seyahat Onayla'},
+        {value: 'expense_create', label: 'Harcama Ekle'},
+        {value: 'expense_view', label: 'Harcama Görüntüle'},
+        {value: 'expense_approve', label: 'Harcama Onayla'},
+        {value: 'report_view', label: 'Rapor Görüntüle'},
+        {value: 'report_export', label: 'Rapor Dışa Aktar'},
+        {value: 'settings_manage', label: 'Ayarları Yönet'},
+        {value: 'all', label: 'Tüm Yetkiler'}
     ];
 
     const categories = [
-        { value: 'accommodation', label: 'Konaklama' },
-        { value: 'meal', label: 'Yemek' },
-        { value: 'transportation', label: 'Ulaşım' },
-        { value: 'fuel', label: 'Yakıt' },
-        { value: 'visa', label: 'Vize' },
-        { value: 'other', label: 'Diğer' }
+        {value: 'accommodation', label: 'Konaklama'},
+        {value: 'meal', label: 'Yemek'},
+        {value: 'transportation', label: 'Ulaşım'},
+        {value: 'fuel', label: 'Yakıt'},
+        {value: 'visa', label: 'Vize'},
+        {value: 'other', label: 'Diğer'}
     ];
 
     const regions = [
-        { value: 'domestic', label: 'Yurt İçi' },
-        { value: 'europe', label: 'Avrupa' },
-        { value: 'america', label: 'Amerika' },
-        { value: 'asia', label: 'Asya' },
-        { value: 'middle_east', label: 'Orta Doğu' },
-        { value: 'all', label: 'Tüm Bölgeler' }
+        {value: 'domestic', label: 'Yurt İçi'},
+        {value: 'europe', label: 'Avrupa'},
+        {value: 'america', label: 'Amerika'},
+        {value: 'asia', label: 'Asya'},
+        {value: 'middle_east', label: 'Orta Doğu'},
+        {value: 'all', label: 'Tüm Bölgeler'}
     ];
 
     const currencies = [
-        { value: 'TRY', label: '₺ TRY' },
-        { value: 'USD', label: '$ USD' },
-        { value: 'EUR', label: '€ EUR' },
-        { value: 'GBP', label: '£ GBP' }
+        {value: 'TRY', label: '₺ TRY'},
+        {value: 'USD', label: '$ USD'},
+        {value: 'EUR', label: '€ EUR'},
+        {value: 'GBP', label: '£ GBP'}
     ];
 
     const departments = [
@@ -180,13 +180,13 @@ const Settings = () => {
     ];
 
     const getRoleInfo = (roleValue) => {
-        return roles.find(role => role.value === roleValue) || { label: roleValue, color: 'default' };
+        return roles.find(role => role.value === roleValue) || {label: roleValue, color: 'default'};
     };
 
     const handleUserSubmit = (values) => {
         if (editingUser) {
             setUsers(users.map(user =>
-                user.id === editingUser.id ? { ...user, ...values } : user
+                user.id === editingUser.id ? {...user, ...values} : user
             ));
             message.success('Kullanıcı başarıyla güncellendi!');
         } else {
@@ -262,7 +262,7 @@ const Settings = () => {
     const togglePolicyStatus = (policyId) => {
         setPolicies(policies.map(policy =>
             policy.id === policyId
-                ? { ...policy, isActive: !policy.isActive }
+                ? {...policy, isActive: !policy.isActive}
                 : policy
         ));
         message.success('Politika durumu güncellendi!');
@@ -275,8 +275,8 @@ const Settings = () => {
             key: 'user',
             render: (_, record) => (
                 <div>
-                    <div><UserOutlined /> {record.name}</div>
-                    <Text type="secondary" style={{ fontSize: '12px' }}>
+                    <div><UserOutlined/> {record.name}</div>
+                    <Text type="secondary" style={{fontSize: '12px'}}>
                         {record.email}
                     </Text>
                 </div>
@@ -334,7 +334,7 @@ const Settings = () => {
                 <Space>
                     <Button
                         type="link"
-                        icon={<EditOutlined />}
+                        icon={<EditOutlined/>}
                         onClick={() => handleEditUser(record)}
                     />
                     <Popconfirm
@@ -345,7 +345,7 @@ const Settings = () => {
                     >
                         <Button
                             type="link"
-                            icon={<DeleteOutlined />}
+                            icon={<DeleteOutlined/>}
                             danger
                         />
                     </Popconfirm>
@@ -391,7 +391,7 @@ const Settings = () => {
                 <Space>
                     <Button
                         type="link"
-                        icon={<EditOutlined />}
+                        icon={<EditOutlined/>}
                         onClick={() => handleEditPolicy(record)}
                     />
                     <Popconfirm
@@ -402,7 +402,7 @@ const Settings = () => {
                     >
                         <Button
                             type="link"
-                            icon={<DeleteOutlined />}
+                            icon={<DeleteOutlined/>}
                             danger
                         />
                     </Popconfirm>
@@ -412,426 +412,427 @@ const Settings = () => {
     ];
 
     return (
-        <div style={{ padding: '24px' }}>
-            <Title level={2}>
-                <SettingOutlined /> Ayarlar & Yetkilendirme
-            </Title>
+        <header>
+            <section className="section__container destination__container">
+                <Title level={2}>
+                    <SettingOutlined/> Ayarlar & Yetkilendirme
+                </Title>
 
-            <Tabs activeKey={activeTab} onChange={setActiveTab}>
-                {/* Rol ve Yetki Yönetimi */}
-                <TabPane tab={<><TeamOutlined /> Kullanıcı Yönetimi</>} key="roles">
-                    <Card
-                        title="Kullanıcı ve Rol Yönetimi"
-                        extra={
-                            <Button
-                                type="primary"
-                                icon={<PlusOutlined />}
-                                onClick={() => {
-                                    setEditingUser(null);
-                                    userForm.resetFields();
-                                    setIsUserModalVisible(true);
-                                }}
-                            >
-                                Yeni Kullanıcı
-                            </Button>
-                        }
-                    >
-                        <Alert
-                            message="Kullanıcı Yetkileri"
-                            description="Sistem kullanıcılarının rollerini ve yetkilerini bu bölümden yönetebilirsiniz."
-                            type="info"
-                            showIcon
-                            style={{ marginBottom: '16px' }}
-                        />
-
-                        <Table
-                            columns={userColumns}
-                            dataSource={users}
-                            rowKey="id"
-                            pagination={{ pageSize: 10 }}
-                        />
-                    </Card>
-                </TabPane>
-
-                {/* Politika ve Limitler */}
-                <TabPane tab={<><DollarOutlined /> Politikalar</>} key="policies">
-                    <Card
-                        title="Harcama Politikaları ve Limitler"
-                        extra={
-                            <Button
-                                type="primary"
-                                icon={<PlusOutlined />}
-                                onClick={() => {
-                                    setEditingPolicy(null);
-                                    policyForm.resetFields();
-                                    setIsPolicyModalVisible(true);
-                                }}
-                            >
-                                Yeni Politika
-                            </Button>
-                        }
-                    >
-                        <Alert
-                            message="Harcama Limitleri"
-                            description="Kategoriler ve bölgeler bazında günlük harcama limitlerini belirleyebilirsiniz."
-                            type="info"
-                            showIcon
-                            style={{ marginBottom: '16px' }}
-                        />
-
-                        <Table
-                            columns={policyColumns}
-                            dataSource={policies}
-                            rowKey="id"
-                            pagination={{ pageSize: 10 }}
-                        />
-                    </Card>
-                </TabPane>
-
-                {/* Genel Ayarlar */}
-                <TabPane tab={<><GlobalOutlined /> Genel Ayarlar</>} key="general">
-                    <Card title="Sistem Genel Ayarları">
-                        <Form
-                            form={generalForm}
-                            layout="vertical"
-                            initialValues={{
-                                defaultLanguage: 'tr',
-                                defaultCurrency: 'TRY',
-                                autoApprovalLimit: 100,
-                                emailNotifications: true,
-                                smsNotifications: false
-                            }}
-                        >
-                            <Row gutter={16}>
-                                <Col span={12}>
-                                    <Form.Item
-                                        label="Varsayılan Dil"
-                                        name="defaultLanguage"
-                                    >
-                                        <Select>
-                                            <Select.Option value="tr">Türkçe</Select.Option>
-                                            <Select.Option value="en">English</Select.Option>
-                                        </Select>
-                                    </Form.Item>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item
-                                        label="Varsayılan Para Birimi"
-                                        name="defaultCurrency"
-                                    >
-                                        <Select>
-                                            {currencies.map(currency => (
-                                                <Select.Option key={currency.value} value={currency.value}>
-                                                    {currency.label}
-                                                </Select.Option>
-                                            ))}
-                                        </Select>
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-
-                            <Row gutter={16}>
-                                <Col span={12}>
-                                    <Form.Item
-                                        label="Otomatik Onay Limiti"
-                                        name="autoApprovalLimit"
-                                        help="Bu tutarın altındaki harcamalar otomatik onaylanır"
-                                    >
-                                        <InputNumber
-                                            style={{ width: '100%' }}
-                                            suffix="₺"
-                                            min={0}
-                                            max={1000}
-                                        />
-                                    </Form.Item>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item
-                                        label="Onay Süresi (Gün)"
-                                        name="approvalTimeout"
-                                        help="Bu süre sonunda otomatik onaylanır"
-                                        initialValue={7}
-                                    >
-                                        <InputNumber
-                                            style={{ width: '100%' }}
-                                            min={1}
-                                            max={30}
-                                        />
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-
-                            <Divider />
-
-                            <Title level={4}>Bildirim Ayarları</Title>
-                            <Row gutter={16}>
-                                <Col span={8}>
-                                    <Form.Item
-                                        label="E-posta Bildirimleri"
-                                        name="emailNotifications"
-                                        valuePropName="checked"
-                                    >
-                                        <Switch />
-                                    </Form.Item>
-                                </Col>
-                                <Col span={8}>
-                                    <Form.Item
-                                        label="SMS Bildirimleri"
-                                        name="smsNotifications"
-                                        valuePropName="checked"
-                                    >
-                                        <Switch />
-                                    </Form.Item>
-                                </Col>
-                                <Col span={8}>
-                                    <Form.Item
-                                        label="Push Bildirimleri"
-                                        name="pushNotifications"
-                                        valuePropName="checked"
-                                        initialValue={true}
-                                    >
-                                        <Switch />
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-
-                            <Divider />
-
-                            <Title level={4}>Güvenlik Ayarları</Title>
-                            <Row gutter={16}>
-                                <Col span={12}>
-                                    <Form.Item
-                                        label="Şifre Geçerlilik Süresi (Gün)"
-                                        name="passwordExpiry"
-                                        initialValue={90}
-                                    >
-                                        <InputNumber
-                                            style={{ width: '100%' }}
-                                            min={30}
-                                            max={365}
-                                        />
-                                    </Form.Item>
-                                </Col>
-                                <Col span={12}>
-                                    <Form.Item
-                                        label="Oturum Zaman Aşımı (Dakika)"
-                                        name="sessionTimeout"
-                                        initialValue={30}
-                                    >
-                                        <InputNumber
-                                            style={{ width: '100%' }}
-                                            min={15}
-                                            max={480}
-                                        />
-                                    </Form.Item>
-                                </Col>
-                            </Row>
-
-                            <Form.Item>
+                <Tabs activeKey={activeTab} onChange={setActiveTab}>
+                    {/* Rol ve Yetki Yönetimi */}
+                    <TabPane tab={<><TeamOutlined/> Kullanıcı Yönetimi</>} key="roles">
+                        <Card
+                            title="Kullanıcı ve Rol Yönetimi"
+                            extra={
                                 <Button
                                     type="primary"
-                                    icon={<SaveOutlined />}
-                                    onClick={() => message.success('Ayarlar kaydedildi!')}
+                                    icon={<PlusOutlined/>}
+                                    onClick={() => {
+                                        setEditingUser(null);
+                                        userForm.resetFields();
+                                        setIsUserModalVisible(true);
+                                    }}
                                 >
-                                    Ayarları Kaydet
+                                    Yeni Kullanıcı
                                 </Button>
-                            </Form.Item>
-                        </Form>
-                    </Card>
-                </TabPane>
-            </Tabs>
+                            }
+                        >
+                            <Alert
+                                message="Kullanıcı Yetkileri"
+                                description="Sistem kullanıcılarının rollerini ve yetkilerini bu bölümden yönetebilirsiniz."
+                                type="info"
+                                showIcon
+                                style={{marginBottom: '16px'}}
+                            />
 
-            {/* Kullanıcı Ekleme/Düzenleme Modal */}
-            <Modal
-                title={editingUser ? 'Kullanıcı Düzenle' : 'Yeni Kullanıcı Ekle'}
-                open={isUserModalVisible}
-                onCancel={() => {
-                    setIsUserModalVisible(false);
-                    setEditingUser(null);
-                    userForm.resetFields();
-                }}
-                footer={null}
-                width={600}
-            >
-                <Form
-                    form={userForm}
-                    layout="vertical"
-                    onFinish={handleUserSubmit}
+                            <Table
+                                columns={userColumns}
+                                dataSource={users}
+                                rowKey="id"
+                                pagination={{pageSize: 10}}
+                            />
+                        </Card>
+                    </TabPane>
+
+                    {/* Politika ve Limitler */}
+                    <TabPane tab={<><DollarOutlined/> Politikalar</>} key="policies">
+                        <Card
+                            title="Harcama Politikaları ve Limitler"
+                            extra={
+                                <Button
+                                    type="primary"
+                                    icon={<PlusOutlined/>}
+                                    onClick={() => {
+                                        setEditingPolicy(null);
+                                        policyForm.resetFields();
+                                        setIsPolicyModalVisible(true);
+                                    }}
+                                >
+                                    Yeni Politika
+                                </Button>
+                            }
+                        >
+                            <Alert
+                                message="Harcama Limitleri"
+                                description="Kategoriler ve bölgeler bazında günlük harcama limitlerini belirleyebilirsiniz."
+                                type="info"
+                                showIcon
+                                style={{marginBottom: '16px'}}
+                            />
+
+                            <Table
+                                columns={policyColumns}
+                                dataSource={policies}
+                                rowKey="id"
+                                pagination={{pageSize: 10}}
+                            />
+                        </Card>
+                    </TabPane>
+
+                    {/* Genel Ayarlar */}
+                    <TabPane tab={<><GlobalOutlined/> Genel Ayarlar</>} key="general">
+                        <Card title="Sistem Genel Ayarları">
+                            <Form
+                                form={generalForm}
+                                layout="vertical"
+                                initialValues={{
+                                    defaultLanguage: 'tr',
+                                    defaultCurrency: 'TRY',
+                                    autoApprovalLimit: 100,
+                                    emailNotifications: true,
+                                    smsNotifications: false
+                                }}
+                            >
+                                <Row gutter={16}>
+                                    <Col span={12}>
+                                        <Form.Item
+                                            label="Varsayılan Dil"
+                                            name="defaultLanguage"
+                                        >
+                                            <Select>
+                                                <Select.Option value="tr">Türkçe</Select.Option>
+                                                <Select.Option value="en">English</Select.Option>
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item
+                                            label="Varsayılan Para Birimi"
+                                            name="defaultCurrency"
+                                        >
+                                            <Select>
+                                                {currencies.map(currency => (
+                                                    <Select.Option key={currency.value} value={currency.value}>
+                                                        {currency.label}
+                                                    </Select.Option>
+                                                ))}
+                                            </Select>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+
+                                <Row gutter={16}>
+                                    <Col span={12}>
+                                        <Form.Item
+                                            label="Otomatik Onay Limiti"
+                                            name="autoApprovalLimit"
+                                            help="Bu tutarın altındaki harcamalar otomatik onaylanır"
+                                        >
+                                            <InputNumber
+                                                style={{width: '100%'}}
+                                                suffix="₺"
+                                                min={0}
+                                                max={1000}
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item
+                                            label="Onay Süresi (Gün)"
+                                            name="approvalTimeout"
+                                            help="Bu süre sonunda otomatik onaylanır"
+                                            initialValue={7}
+                                        >
+                                            <InputNumber
+                                                style={{width: '100%'}}
+                                                min={1}
+                                                max={30}
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+
+                                <Divider/>
+
+                                <Title level={4}>Bildirim Ayarları</Title>
+                                <Row gutter={16}>
+                                    <Col span={8}>
+                                        <Form.Item
+                                            label="E-posta Bildirimleri"
+                                            name="emailNotifications"
+                                            valuePropName="checked"
+                                        >
+                                            <Switch/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Form.Item
+                                            label="SMS Bildirimleri"
+                                            name="smsNotifications"
+                                            valuePropName="checked"
+                                        >
+                                            <Switch/>
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={8}>
+                                        <Form.Item
+                                            label="Push Bildirimleri"
+                                            name="pushNotifications"
+                                            valuePropName="checked"
+                                            initialValue={true}
+                                        >
+                                            <Switch/>
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+
+                                <Divider/>
+
+                                <Title level={4}>Güvenlik Ayarları</Title>
+                                <Row gutter={16}>
+                                    <Col span={12}>
+                                        <Form.Item
+                                            label="Şifre Geçerlilik Süresi (Gün)"
+                                            name="passwordExpiry"
+                                            initialValue={90}
+                                        >
+                                            <InputNumber
+                                                style={{width: '100%'}}
+                                                min={30}
+                                                max={365}
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                    <Col span={12}>
+                                        <Form.Item
+                                            label="Oturum Zaman Aşımı (Dakika)"
+                                            name="sessionTimeout"
+                                            initialValue={30}
+                                        >
+                                            <InputNumber
+                                                style={{width: '100%'}}
+                                                min={15}
+                                                max={480}
+                                            />
+                                        </Form.Item>
+                                    </Col>
+                                </Row>
+
+                                <Form.Item>
+                                    <Button
+                                        type="primary"
+                                        icon={<SaveOutlined/>}
+                                        onClick={() => message.success('Ayarlar kaydedildi!')}
+                                    >
+                                        Ayarları Kaydet
+                                    </Button>
+                                </Form.Item>
+                            </Form>
+                        </Card>
+                    </TabPane>
+                </Tabs>
+
+                {/* Kullanıcı Ekleme/Düzenleme Modal */}
+                <Modal
+                    title={editingUser ? 'Kullanıcı Düzenle' : 'Yeni Kullanıcı Ekle'}
+                    open={isUserModalVisible}
+                    onCancel={() => {
+                        setIsUserModalVisible(false);
+                        setEditingUser(null);
+                        userForm.resetFields();
+                    }}
+                    footer={null}
+                    width={600}
                 >
-                    <Row gutter={16}>
-                        <Col span={12}>
-                            <Form.Item
-                                label="Ad Soyad"
-                                name="name"
-                                rules={[{ required: true, message: 'Ad soyad zorunludur!' }]}
-                            >
-                                <Input />
-                            </Form.Item>
-                        </Col>
-                        <Col span={12}>
-                            <Form.Item
-                                label="E-posta"
-                                name="email"
-                                rules={[
-                                    { required: true, message: 'E-posta zorunludur!' },
-                                    { type: 'email', message: 'Geçerli e-posta adresi girin!' }
-                                ]}
-                            >
-                                <Input />
-                            </Form.Item>
-                        </Col>
-                    </Row>
-
-                    <Row gutter={16}>
-                        <Col span={12}>
-                            <Form.Item
-                                label="Departman"
-                                name="department"
-                                rules={[{ required: true, message: 'Departman seçin!' }]}
-                            >
-                                <Select>
-                                    {departments.map(dept => (
-                                        <Select.Option key={dept} value={dept}>
-                                            {dept}
-                                        </Select.Option>
-                                    ))}
-                                </Select>
-                            </Form.Item>
-                        </Col>
-                        <Col span={12}>
-                            <Form.Item
-                                label="Rol"
-                                name="role"
-                                rules={[{ required: true, message: 'Rol seçin!' }]}
-                            >
-                                <Select>
-                                    {roles.map(role => (
-                                        <Select.Option key={role.value} value={role.value}>
-                                            {role.label}
-                                        </Select.Option>
-                                    ))}
-                                </Select>
-                            </Form.Item>
-                        </Col>
-                    </Row>
-
-                    <Form.Item
-                        label="Yetkiler"
-                        name="permissions"
-                        rules={[{ required: true, message: 'En az bir yetki seçin!' }]}
+                    <Form
+                        form={userForm}
+                        layout="vertical"
+                        onFinish={handleUserSubmit}
                     >
-                        <Select mode="multiple" placeholder="Yetkiler seçin">
-                            {permissions.map(perm => (
-                                <Select.Option key={perm.value} value={perm.value}>
-                                    {perm.label}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
+                        <Row gutter={16}>
+                            <Col span={12}>
+                                <Form.Item
+                                    label="Ad Soyad"
+                                    name="name"
+                                    rules={[{required: true, message: 'Ad soyad zorunludur!'}]}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                            </Col>
+                            <Col span={12}>
+                                <Form.Item
+                                    label="E-posta"
+                                    name="email"
+                                    rules={[
+                                        {required: true, message: 'E-posta zorunludur!'},
+                                        {type: 'email', message: 'Geçerli e-posta adresi girin!'}
+                                    ]}
+                                >
+                                    <Input/>
+                                </Form.Item>
+                            </Col>
+                        </Row>
 
-                    <Form.Item>
-                        <Space>
-                            <Button type="primary" htmlType="submit">
-                                {editingUser ? 'Güncelle' : 'Ekle'}
-                            </Button>
-                            <Button onClick={() => setIsUserModalVisible(false)}>
-                                İptal
-                            </Button>
-                        </Space>
-                    </Form.Item>
-                </Form>
-            </Modal>
+                        <Row gutter={16}>
+                            <Col span={12}>
+                                <Form.Item
+                                    label="Departman"
+                                    name="department"
+                                    rules={[{required: true, message: 'Departman seçin!'}]}
+                                >
+                                    <Select>
+                                        {departments.map(dept => (
+                                            <Select.Option key={dept} value={dept}>
+                                                {dept}
+                                            </Select.Option>
+                                        ))}
+                                    </Select>
+                                </Form.Item>
+                            </Col>
+                            <Col span={12}>
+                                <Form.Item
+                                    label="Rol"
+                                    name="role"
+                                    rules={[{required: true, message: 'Rol seçin!'}]}
+                                >
+                                    <Select>
+                                        {roles.map(role => (
+                                            <Select.Option key={role.value} value={role.value}>
+                                                {role.label}
+                                            </Select.Option>
+                                        ))}
+                                    </Select>
+                                </Form.Item>
+                            </Col>
+                        </Row>
 
-            {/* Politika Ekleme/Düzenleme Modal */}
-            <Modal
-                title={editingPolicy ? 'Politika Düzenle' : 'Yeni Politika Ekle'}
-                open={isPolicyModalVisible}
-                onCancel={() => {
-                    setIsPolicyModalVisible(false);
-                    setEditingPolicy(null);
-                    policyForm.resetFields();
-                }}
-                footer={null}
-                width={500}
-            >
-                <Form
-                    form={policyForm}
-                    layout="vertical"
-                    onFinish={handlePolicySubmit}
+                        <Form.Item
+                            label="Yetkiler"
+                            name="permissions"
+                            rules={[{required: true, message: 'En az bir yetki seçin!'}]}
+                        >
+                            <Select mode="multiple" placeholder="Yetkiler seçin">
+                                {permissions.map(perm => (
+                                    <Select.Option key={perm.value} value={perm.value}>
+                                        {perm.label}
+                                    </Select.Option>
+                                ))}
+                            </Select>
+                        </Form.Item>
+
+                        <Form.Item>
+                            <Space>
+                                <Button type="primary" htmlType="submit">
+                                    {editingUser ? 'Güncelle' : 'Ekle'}
+                                </Button>
+                                <Button onClick={() => setIsUserModalVisible(false)}>
+                                    İptal
+                                </Button>
+                            </Space>
+                        </Form.Item>
+                    </Form>
+                </Modal>
+
+                {/* Politika Ekleme/Düzenleme Modal */}
+                <Modal
+                    title={editingPolicy ? 'Politika Düzenle' : 'Yeni Politika Ekle'}
+                    open={isPolicyModalVisible}
+                    onCancel={() => {
+                        setIsPolicyModalVisible(false);
+                        setEditingPolicy(null);
+                        policyForm.resetFields();
+                    }}
+                    footer={null}
+                    width={500}
                 >
-                    <Form.Item
-                        label="Kategori"
-                        name="category"
-                        rules={[{ required: true, message: 'Kategori seçin!' }]}
+                    <Form
+                        form={policyForm}
+                        layout="vertical"
+                        onFinish={handlePolicySubmit}
                     >
-                        <Select>
-                            {categories.map(category => (
-                                <Select.Option key={category.value} value={category.value}>
-                                    {category.label}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
+                        <Form.Item
+                            label="Kategori"
+                            name="category"
+                            rules={[{required: true, message: 'Kategori seçin!'}]}
+                        >
+                            <Select>
+                                {categories.map(category => (
+                                    <Select.Option key={category.value} value={category.value}>
+                                        {category.label}
+                                    </Select.Option>
+                                ))}
+                            </Select>
+                        </Form.Item>
 
-                    <Form.Item
-                        label="Bölge"
-                        name="region"
-                        rules={[{ required: true, message: 'Bölge seçin!' }]}
-                    >
-                        <Select>
-                            {regions.map(region => (
-                                <Select.Option key={region.value} value={region.value}>
-                                    {region.label}
-                                </Select.Option>
-                            ))}
-                        </Select>
-                    </Form.Item>
+                        <Form.Item
+                            label="Bölge"
+                            name="region"
+                            rules={[{required: true, message: 'Bölge seçin!'}]}
+                        >
+                            <Select>
+                                {regions.map(region => (
+                                    <Select.Option key={region.value} value={region.value}>
+                                        {region.label}
+                                    </Select.Option>
+                                ))}
+                            </Select>
+                        </Form.Item>
 
-                    <Row gutter={16}>
-                        <Col span={12}>
-                            <Form.Item
-                                label="Günlük Limit"
-                                name="dailyLimit"
-                                rules={[{ required: true, message: 'Limit girin!' }]}
-                            >
-                                <InputNumber
-                                    style={{ width: '100%' }}
-                                    min={0}
-                                    precision={2}
-                                />
-                            </Form.Item>
-                        </Col>
-                        <Col span={12}>
-                            <Form.Item
-                                label="Para Birimi"
-                                name="currency"
-                                rules={[{ required: true, message: 'Para birimi seçin!' }]}
-                            >
-                                <Select>
-                                    {currencies.map(currency => (
-                                        <Select.Option key={currency.value} value={currency.value}>
-                                            {currency.label}
-                                        </Select.Option>
-                                    ))}
-                                </Select>
-                            </Form.Item>
-                        </Col>
-                    </Row>
+                        <Row gutter={16}>
+                            <Col span={12}>
+                                <Form.Item
+                                    label="Günlük Limit"
+                                    name="dailyLimit"
+                                    rules={[{required: true, message: 'Limit girin!'}]}
+                                >
+                                    <InputNumber
+                                        style={{width: '100%'}}
+                                        min={0}
+                                        precision={2}
+                                    />
+                                </Form.Item>
+                            </Col>
+                            <Col span={12}>
+                                <Form.Item
+                                    label="Para Birimi"
+                                    name="currency"
+                                    rules={[{required: true, message: 'Para birimi seçin!'}]}
+                                >
+                                    <Select>
+                                        {currencies.map(currency => (
+                                            <Select.Option key={currency.value} value={currency.value}>
+                                                {currency.label}
+                                            </Select.Option>
+                                        ))}
+                                    </Select>
+                                </Form.Item>
+                            </Col>
+                        </Row>
 
-                    <Form.Item>
-                        <Space>
-                            <Button type="primary" htmlType="submit">
-                                {editingPolicy ? 'Güncelle' : 'Ekle'}
-                            </Button>
-                            <Button onClick={() => setIsPolicyModalVisible(false)}>
-                                İptal
-                            </Button>
-                        </Space>
-                    </Form.Item>
-                </Form>
-            </Modal>
-        </div>
-    );
+                        <Form.Item>
+                            <Space>
+                                <Button type="primary" htmlType="submit">
+                                    {editingPolicy ? 'Güncelle' : 'Ekle'}
+                                </Button>
+                                <Button onClick={() => setIsPolicyModalVisible(false)}>
+                                    İptal
+                                </Button>
+                            </Space>
+                        </Form.Item>
+                    </Form>
+                </Modal>
+            </section>
+        </header>);
 };
 
 export default Settings;
