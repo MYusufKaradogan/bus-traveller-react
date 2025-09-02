@@ -3,7 +3,7 @@ import {Button, Image, Layout,} from 'antd';
 import Navbar from "./Navbar";
 import FooterLayout from "./FooterLayout";
 import ContentLayout from "./ContentLayout";
-import logo from "img/logo4.jpeg"
+import logo from "img/CorporateRoute.png"
 import "styles/content-style.css";
 import {useNavigate} from "react-router-dom";
 

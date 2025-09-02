@@ -37,7 +37,7 @@
     background-image: url('img/ticket2.avif');
     background-size: auto;
     background-position: center;
-    background-color: rgba(255, 255,255, 0.8); /* %50 şeffaf renk */
+    background-color: rgba(255, 255,255, 1); /* %50 şeffaf renk */
     background-blend-mode: lighten; /* veya overlay, multiply */
     background-repeat: repeat;
     border-radius: 8px;
